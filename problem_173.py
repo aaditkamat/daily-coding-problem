@@ -35,8 +35,8 @@ def flatten(dictionary):
             new_dictionary[key] = dictionary[key]
         else:
             flattened_dictionary = flatten(dictionary[key])
-            for abridged_key in flattened_dictionary:
-                new_dictionary[f"{key}.{abridged_key}"] = flattened_dictionary[abridged_key]
+            for namespaced_key in flattened_dictionary:
+                new_dictionary[f"{key}.{namespaced_key}"] = flattened_dictionary[namespaced_key]
     return new_dictionary
     
 
