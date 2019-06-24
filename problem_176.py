@@ -8,19 +8,22 @@ For example, given s1 = abc and s2 = bcd, return true since we can map a to b, b
 Given s1 = foo and s2 = bar, return false since the o cannot map to two characters.
 
 ```
-def count(s):
-    string_map = {}
-    for char in s:
-        if char in string_map:
-            string_map[char] += 1
+def count(cont):
+    cont_map = {}
+    for char in cont:
+        if char in cont_map:
+            cont_map[char] += 1
         else:
-            string_map[char] = 1
-    return string_map
+            cont_map[char] = 1
+    return cont_map
+
+def lists_are_equal(lst1, lst2):
+    return count(lst1) == count(lst2) 
 
 def exists_one_to_one_character_mapping(s1, s2):
     s1_map = count(s1)
     s2_map = count(s2)
-    return sorted(s1_map.values()) == sorted(s2_map.values())
+    return lists_are_equal(s1_map.values(), s2_map.values())
     
 
 if __name__ == '__main__':
